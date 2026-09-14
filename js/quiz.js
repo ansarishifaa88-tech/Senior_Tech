@@ -124,46 +124,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
-
 function generateCertificate(score, percentage) {
 
     const certificate = `
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Senior Tech Certificate</title>
 
 <style>
 
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
     background: #f8f1e5;
     text-align: center;
-    padding: 30px;
 }
 
 .certificate {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 50px;
+    width: 100%;
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 45px 30px;
     background: white;
-    border: 8px solid #6d4a8d;
+    border: 8px solid #6b3fa0;
     border-radius: 12px;
 }
 
 h1 {
-    color: #6d4a8d;
+    color: #6b3fa0;
     font-size: 38px;
+    margin-bottom: 20px;
 }
 
 h2 {
     color: #333;
+    font-size: 25px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .score {
@@ -171,8 +182,36 @@ h2 {
     margin: 25px 0;
 }
 
-</style>
+@media (max-width: 600px) {
 
+    body {
+        padding: 12px;
+    }
+
+    .certificate {
+        margin: 10px auto;
+        padding: 35px 18px;
+        border-width: 6px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .score {
+        font-size: 18px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -186,11 +225,8 @@ h2 {
     <h2>Senior Tech Digital Literacy Quiz</h2>
 
     <div class="score">
-
         <p>Score: <strong>${score}/10</strong></p>
-
         <p>Percentage: <strong>${percentage}%</strong></p>
-
     </div>
 
     <p>Congratulations on completing the quiz!</p>
@@ -200,7 +236,6 @@ h2 {
 </div>
 
 </body>
-
 </html>
 `;
 
@@ -214,3 +249,5 @@ h2 {
     certificateWindow.document.write(certificate);
     certificateWindow.document.close();
 }
+
+
