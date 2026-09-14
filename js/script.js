@@ -2,21 +2,34 @@
 // MOBILE MENU
 // ===============================
 
-const menuBtn = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
+// ===============================
+// MOBILE MENU
+// ===============================
 
-if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", function () {
-        navLinks.classList.toggle("show");
-    });
+document.addEventListener("DOMContentLoaded", function () {
 
-    document.querySelectorAll(".nav-links a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            navLinks.classList.remove("show");
+    const menuBtn = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuBtn && navLinks) {
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+
+            const isOpen = navLinks.classList.contains("show");
+
+            menuBtn.setAttribute("aria-expanded", isOpen);
         });
-    });
-}
 
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("show");
+                menuBtn.setAttribute("aria-expanded", "false");
+            });
+        });
+    }
+
+});
 
 // ===============================
 // FONT SIZE
