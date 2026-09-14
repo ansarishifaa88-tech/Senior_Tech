@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Senior Tech</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">Senior Tech</a>
+
+        <button class="menu-button" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="learn.html">Learn</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="help.html">Help</a>
+            <a href="admin.html" class="active">Admin</a>
+        </div>
+
+    </div>
+</header>
+
+<div class="accessibility">
+    <button onclick="setFontSize('small')">A−</button>
+    <button onclick="setFontSize('normal')">A</button>
+    <button onclick="setFontSize('large')">A+</button>
+    <button onclick="toggleDarkMode()">🌙</button>
+    <button onclick="readPage()">🔊</button>
+    <button onclick="stopReading()">■</button>
+</div>
+
+<main class="page">
+
+<section class="content-box">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>View feedback submitted through the Senior Tech website.</p>
+
+    <div class="admin-stats">
+
+        <div class="stat-card">
+            <h2 id="totalFeedback">0</h2>
+            <p>Total Feedback</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="averageRating">0</h2>
+            <p>Average Rating</p>
+        </div>
+
+    </div>
+
+    <h2>Submitted Feedback</h2>
+
+    <div id="feedbackList">
+        <p>No feedback submitted yet.</p>
+    </div>
+    <h2>Quiz Submissions</h2>
+
+<div class="admin-stats">
+    <div class="stat-card">
+        <h2 id="totalQuizAttempts">0</h2>
+        <p>Total Quiz Attempts</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="averageQuizScore">0%</h2>
+        <p>Average Quiz Score</p>
+    </div>
+</div>
+
+<div id="quizList">
+    <p>No quiz submissions yet.</p>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Senior Tech | Digital Literacy for Senior Citizens</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+const feedbackList =
+    JSON.parse(localStorage.getItem("seniorTechFeedback") || "[]");
+
+const totalFeedback =
+    document.getElementById("totalFeedback");
+
+const averageRating =
+    document.getElementById("averageRating");
+
+const feedbackContainer =
+    document.getElementById("feedbackList");
+
+totalFeedback.textContent = feedbackList.length;
+
+if (feedbackList.length > 0) {
+
+    const totalRating = feedbackList.reduce(
+        (sum, item) => sum + Number(item.rating),
+        0
+    );
+
+    averageRating.textContent =
+        (totalRating / feedbackList.length).toFixed(1);
+
+    feedbackContainer.innerHTML = "";
+
+    feedbackList.forEach(function(item) {
+
+        const feedbackItem = document.createElement("div");
+
+        feedbackItem.className = "feedback-item";
+
+        feedbackItem.innerHTML = `
+            <h3>${escapeHTML(item.name)}</h3>
+            <p><strong>Rating:</strong> ${item.rating}/5</p>
+            <p>${escapeHTML(item.feedback)}</p>
+            <small>${escapeHTML(item.date)}</small>
+        `;
+
+        feedbackContainer.appendChild(feedbackItem);
+    });
+
+} else {
+    averageRating.textContent = "0";
+}
+
+
+function escapeHTML(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+const quizResults = JSON.parse(
+    localStorage.getItem("seniorTechQuizResults") || "[]"
+);
+
+const totalQuizAttempts =
+    document.getElementById("totalQuizAttempts");
+
+const averageQuizScore =
+    document.getElementById("averageQuizScore");
+
+const quizList =
+    document.getElementById("quizList");
+
+totalQuizAttempts.textContent = quizResults.length;
+
+if (quizResults.length > 0) {
+
+    const totalPercentage = quizResults.reduce(
+        (sum, item) => sum + Number(item.percentage),
+        0
+    );
+
+    averageQuizScore.textContent =
+        (totalPercentage / quizResults.length).toFixed(1) + "%";
+
+    quizList.innerHTML = "";
+
+    quizResults.forEach(function (item, index) {
+
+        const quizItem = document.createElement("div");
+
+        quizItem.className = "feedback-item";
+
+        quizItem.innerHTML = `
+            <h3>Quiz Attempt ${index + 1}</h3>
+            <p><strong>Score:</strong> ${item.score}/10</p>
+            <p><strong>Percentage:</strong> ${item.percentage}%</p>
+            <small>${item.date}</small>
+        `;
+
+        quizList.appendChild(quizItem);
+    });
+
+} else {
+
+    averageQuizScore.textContent = "0%";
+
+}
+</script>
+
+</body>
+</html>

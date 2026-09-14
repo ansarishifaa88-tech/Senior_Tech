@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help & Feedback | Senior Tech</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">Senior Tech</a>
+
+        <button class="menu-button" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="learn.html">Learn</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="help.html" class="active">Help</a>
+            <a href="admin.html">Admin</a>
+        </div>
+
+    </div>
+</header>
+
+<div class="accessibility">
+    <button onclick="setFontSize('small')">A−</button>
+    <button onclick="setFontSize('normal')">A</button>
+    <button onclick="setFontSize('large')">A+</button>
+    <button onclick="toggleDarkMode()">🌙</button>
+    <button onclick="readPage()">🔊</button>
+    <button onclick="stopReading()">■</button>
+</div>
+
+<main class="page">
+
+<section class="content-box">
+
+    <h1>Help & Feedback</h1>
+
+    <p>
+        If you need help or want to share your experience,
+        please use the form below.
+    </p>
+
+    <h2>Need Help?</h2>
+
+    <p>
+        Choose the topic you need help with from the Learn section.
+        You can learn each topic step by step.
+    </p>
+
+    <h2>Share Your Feedback</h2>
+
+    <form id="feedbackForm">
+
+        <label for="name">Your Name</label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label for="rating">Rate Senior Tech</label>
+
+        <select id="rating" required>
+            <option value="">Select Rating</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Very Good</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Needs Improvement</option>
+            <option value="1">1 - Poor</option>
+        </select>
+
+        <label for="feedback">Your Feedback</label>
+
+        <textarea
+            id="feedback"
+            rows="5"
+            placeholder="Write your feedback here..."
+            required
+        ></textarea>
+
+        <button type="submit" class="btn-primary">
+            Submit Feedback
+        </button>
+
+    </form>
+
+    <p id="feedbackMessage"></p>
+
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Senior Tech | Digital Literacy for Senior Citizens</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

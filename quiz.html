@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz | Senior Tech</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">Senior Tech</a>
+
+        <button class="menu-button" id="menuBtn">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="learn.html">Learn</a>
+            <a href="quiz.html" class="active">Quiz</a>
+            <a href="help.html">Help</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </div>
+</header>
+
+<div class="accessibility">
+    <button onclick="setFontSize('small')">A−</button>
+    <button onclick="setFontSize('normal')">A</button>
+    <button onclick="setFontSize('large')">A+</button>
+    <button onclick="toggleDarkMode()">🌙</button>
+    <button onclick="readPage()">🔊</button>
+    <button onclick="stopReading()">■</button>
+</div>
+
+<main class="page">
+
+<section class="content-box">
+
+<h1>Digital Literacy Quiz</h1>
+
+<p>Test what you have learned from Senior Tech.</p>
+
+<form id="quizForm">
+
+<div class="question">
+<h2>1. Which button is commonly used to turn a smartphone on?</h2>
+<label><input type="radio" name="q1" value="1"> Power button</label>
+<label><input type="radio" name="q1" value="0"> Volume button</label>
+<label><input type="radio" name="q1" value="0"> Camera button</label>
+</div>
+
+<div class="question">
+<h2>2. Which app can be used to make a WhatsApp video call?</h2>
+<label><input type="radio" name="q2" value="0"> Calculator</label>
+<label><input type="radio" name="q2" value="1"> WhatsApp</label>
+<label><input type="radio" name="q2" value="0"> Camera only</label>
+</div>
+
+<div class="question">
+<h2>3. What should you do before making a UPI payment?</h2>
+<label><input type="radio" name="q3" value="1"> Check the receiver and amount</label>
+<label><input type="radio" name="q3" value="0"> Share your PIN</label>
+<label><input type="radio" name="q3" value="0"> Give your OTP to someone</label>
+</div>
+
+<div class="question">
+<h2>4. Should you share your UPI PIN with anyone?</h2>
+<label><input type="radio" name="q4" value="0"> Yes</label>
+<label><input type="radio" name="q4" value="1"> No</label>
+<label><input type="radio" name="q4" value="0"> Only with strangers</label>
+</div>
+
+<div class="question">
+<h2>5. What should you do with a suspicious link?</h2>
+<label><input type="radio" name="q5" value="1"> Avoid clicking it</label>
+<label><input type="radio" name="q5" value="0"> Click immediately</label>
+<label><input type="radio" name="q5" value="0"> Share it with friends</label>
+</div>
+
+<div class="question">
+<h2>6. What information should you keep private?</h2>
+<label><input type="radio" name="q6" value="0"> Your favourite colour</label>
+<label><input type="radio" name="q6" value="1"> OTP and PIN</label>
+<label><input type="radio" name="q6" value="0"> Your hobby</label>
+</div>
+
+<div class="question">
+<h2>7. Which option is used to save a person's phone number?</h2>
+<label><input type="radio" name="q7" value="1"> Contacts</label>
+<label><input type="radio" name="q7" value="0"> Calculator</label>
+<label><input type="radio" name="q7" value="0"> Gallery</label>
+</div>
+
+<div class="question">
+<h2>8. What should you do if someone asks for your OTP on a phone call?</h2>
+<label><input type="radio" name="q8" value="0"> Tell them the OTP</label>
+<label><input type="radio" name="q8" value="1"> Do not share it</label>
+<label><input type="radio" name="q8" value="0"> Send it by message</label>
+</div>
+
+<div class="question">
+<h2>9. What is a strong password useful for?</h2>
+<label><input type="radio" name="q9" value="1"> Protecting an account</label>
+<label><input type="radio" name="q9" value="0"> Sharing private information</label>
+<label><input type="radio" name="q9" value="0"> Receiving spam</label>
+</div>
+
+<div class="question">
+<h2>10. What should you do when you receive an unexpected prize message?</h2>
+<label><input type="radio" name="q10" value="0"> Send money immediately</label>
+<label><input type="radio" name="q10" value="1"> Verify it before taking action</label>
+<label><input type="radio" name="q10" value="0"> Share your OTP</label>
+</div>
+
+<button type="submit" class="btn-primary">Submit Quiz</button>
+
+</form>
+
+<div id="quizResult"></div>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 Senior Tech | Digital Literacy for Senior Citizens</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/quiz.js"></script>
+
+</body>
+</html>
