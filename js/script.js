@@ -2,7 +2,7 @@
 // MOBILE MENU
 // ===============================
 
-const menuBtn = document.getElementById("menuBtn");
+const menuBtn = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
 if (menuBtn && navLinks) {
