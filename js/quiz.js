@@ -133,7 +133,7 @@ function generateCertificate(score, percentage) {
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>Senior Tech Certificate</title>
 
@@ -143,18 +143,25 @@ function generateCertificate(score, percentage) {
     box-sizing: border-box;
 }
 
+html,
 body {
+    width: 100%;
+    min-height: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: #f8f1e5;
     text-align: center;
+    padding: 15px;
 }
 
 .certificate {
     width: 100%;
     max-width: 750px;
-    margin: 20px auto;
+    margin: 15px auto;
     padding: 45px 30px;
     background: white;
     border: 8px solid #6b3fa0;
@@ -164,17 +171,19 @@ body {
 h1 {
     color: #6b3fa0;
     font-size: 38px;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
 }
 
 h2 {
     color: #333;
     font-size: 25px;
+    margin: 15px 0;
 }
 
 p {
     font-size: 18px;
     line-height: 1.6;
+    margin: 12px 0;
 }
 
 .score {
@@ -182,24 +191,26 @@ p {
     margin: 25px 0;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
 
     body {
-        padding: 12px;
+        padding: 10px;
     }
 
     .certificate {
-        margin: 10px auto;
-        padding: 35px 18px;
-        border-width: 6px;
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+        padding: 30px 15px;
+        border-width: 5px;
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     h2 {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     p {
@@ -207,7 +218,8 @@ p {
     }
 
     .score {
-        font-size: 18px;
+        font-size: 17px;
+        margin: 20px 0;
     }
 }
 
@@ -246,8 +258,7 @@ p {
         return;
     }
 
+    certificateWindow.document.open();
     certificateWindow.document.write(certificate);
     certificateWindow.document.close();
 }
-
-
